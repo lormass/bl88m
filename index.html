@@ -32,7 +32,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    /* Reset base */
     * {
       margin: 0;
       padding: 0;
@@ -42,10 +41,11 @@
     html, body {
       height: 100%;
       font-family: 'Open Sans', sans-serif;
-      overflow: hidden;
+      scroll-snap-type: y mandatory;
+      overflow-y: auto;
+      scroll-behavior: smooth;
     }
 
-    /* Sfondo video */
     .video-bg {
       position: fixed;
       top: 0;
@@ -56,7 +56,6 @@
       z-index: -1;
     }
 
-    /* Contenuto centrato */
     .overlay {
       position: relative;
       height: 100vh;
@@ -69,6 +68,7 @@
       text-align: center;
       padding: 20px;
       background-color: rgba(0, 0, 0, 0.4);
+      scroll-snap-align: start;
     }
 
     .logo {
@@ -78,9 +78,34 @@
     }
 
     .opening-text {
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: 600;
       margin-bottom: 20px;
+      text-decoration: none;
+    }
+
+    .contact-text {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-decoration: none;
+      a {
+  color: rgb(0, 163, 192); /* colore normale del link */
+  text-decoration: none; /* rimuove la sottolineatura, opzionale */
+}
+
+a:hover {
+  color: rgb(0, 163, 192); /* colore quando ci passi sopra con il mouse */
+}
+
+a:visited {
+  color: rgb(0, 163, 192); /* colore dopo che è stato visitato */
+}
+
+a:active {
+  color: rgb(0, 163, 192); /* colore quando viene cliccato */
+}
+
     }
 
     .desc-text {
@@ -94,39 +119,109 @@
       letter-spacing: 1px;
     }
 
+    .white-section,
+    .black-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      scroll-snap-align: start;
+    }
+
+    .white-section {
+      background-color: white;
+      color: black;
+    }
+
+    .black-section {
+      background-color: black;
+      color: white;
+      text-align: center;
+    }
+
+    .white-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 1100px;
+      gap: 30px;
+      text-align: center;
+    }
+
+    .white-text h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .white-text p {
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .white-image {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+    }
+
+    .black-section a {
+      color: #00aced;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .black-section a:hover {
+      text-decoration: underline;
+    }
+
     @media (min-width: 768px) {
-      .overlay {
-        flex-direction: column;
+      .white-container {
+        flex-direction: row;
+        text-align: left;
       }
-      .opening-text {
-        font-size: 2.5rem;
+
+      .white-image {
+        width: 45%;
       }
-      .desc-text {
-        font-size: 1.5rem;
-      }
-      .countdown {
-        font-size: 2rem;
+
+      .white-text {
+        width: 50%;
       }
     }
   </style>
 </head>
 <body>
-
-  <!-- Video di sfondo -->
   <video autoplay muted loop playsinline class="video-bg">
     <source src="video/spazio.mp4" type="video/mp4" />
     Il tuo browser non supporta il video HTML5.
   </video>
 
-  <!-- Contenuto centrale -->
   <div class="overlay">
     <img src="img/logohello.png" alt="Logo" class="logo" />
-    <div class="desc-text">Hi, my name is "BL88M" but my creators call me "Bloom"!</div>
+    <!-- <div class="desc-text">Hi, my name is "BL88M" but my creators call me "Bloom"!</div> -->
     <div class="opening-text">Opening Soon...</div>
-    <div class="countdown" id="countdown">00g 00h 00m 00s</div>
+    <div class="countdown" id="countdown">00g 00h 00m</div>
   </div>
 
-  <!-- JavaScript per countdown -->
+  <section class="white-section">
+    <div class="white-container">
+      <img src="img/logo.png" alt="Immagine descrittiva" class="white-image">
+      <div class="white-text">
+        <h2>Hi, my name is "BL88M" but my creators call me "Bloom"!</h2>
+        <p>Stay tuned to find out more...</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="black-section">
+    <div class="black-container">
+      <p class="opening-text"><a href="mailto:bl88m.creators@gmail.com">CONTACT US</a></p>
+    </div>
+  </section>
+
   <script>
     const openingDate = new Date("May 16, 2025 12:00:00").getTime();
     const countdownEl = document.getElementById("countdown");
@@ -150,6 +245,5 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>
-
 </body>
 </html>
