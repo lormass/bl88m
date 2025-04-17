@@ -1,25 +1,8 @@
-<!-- CREATED BY @LORMASS-->
- <!-- CREATED BY @LORMASS-->
-  <!-- CREATED BY @LORMASS-->
-   <!-- CREATED BY @LORMASS-->
-    <!-- CREATED BY @LORMASS-->
-     <!-- CREATED BY @LORMASS-->
-      <!-- CREATED BY @LORMASS-->
-       <!-- CREATED BY @LORMASS-->
-        <!-- CREATED BY @LORMASS-->
-         <!-- CREATED BY @LORMASS-->
-          <!-- CREATED BY @LORMASS-->
-           <!-- CREATED BY @LORMASS-->
-            <!-- CREATED BY @LORMASS-->
-             <!-- CREATED BY @LORMASS-->
-              <!-- CREATED BY @LORMASS-->
-               <!-- CREATED BY @LORMASS-->
-                <!-- CREATED BY @LORMASS-->
-                 <!-- CREATED BY @LORMASS-->
-                  <!-- CREATED BY @LORMASS-->
-                   <!-- CREATED BY @LORMASS-->
-
-
+<!-- CREATED BY LORMASS-->
+ <!-- CREATED BY LORMASS-->
+  <!-- CREATED BY LORMASS-->
+   <!-- CREATED BY LORMASS-->
+    <!-- CREATED BY LORMASS-->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -81,31 +64,6 @@
       font-size: 2.5rem;
       font-weight: 600;
       margin-bottom: 20px;
-      text-decoration: none;
-    }
-
-    .contact-text {
-      font-size: 2.5rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-      text-decoration: none;
-      a {
-  color: rgb(0, 163, 192); /* colore normale del link */
-  text-decoration: none; /* rimuove la sottolineatura, opzionale */
-}
-
-a:hover {
-  color: rgb(0, 163, 192); /* colore quando ci passi sopra con il mouse */
-}
-
-a:visited {
-  color: rgb(0, 163, 192); /* colore dopo che è stato visitato */
-}
-
-a:active {
-  color: rgb(0, 163, 192); /* colore quando viene cliccato */
-}
-
     }
 
     .desc-text {
@@ -147,6 +105,7 @@ a:active {
       max-width: 1100px;
       gap: 30px;
       text-align: center;
+      width: 100%;
     }
 
     .white-text h2 {
@@ -167,14 +126,15 @@ a:active {
       border-radius: 12px;
     }
 
-    .black-section a {
-      color: #00aced;
-      text-decoration: none;
-      font-weight: 600;
+    .black-link-image {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 12px;
     }
 
-    .black-section a:hover {
-      text-decoration: underline;
+    .black-section a {
+      display: inline-block;
     }
 
     @media (min-width: 768px) {
@@ -189,6 +149,10 @@ a:active {
 
       .white-text {
         width: 50%;
+      }
+
+      .black-link-image {
+        max-width: 250px;
       }
     }
   </style>
@@ -217,9 +181,9 @@ a:active {
   </section>
 
   <section class="black-section">
-    <div class="black-container">
-      <p class="opening-text"><a href="mailto:bl88m.creators@gmail.com">CONTACT US</a></p>
-    </div>
+    <a href="mailto:bl88m.creators@gmail.com">
+      <img src="img/contact.png" alt="Contattaci" class="black-link-image">
+    </a>
   </section>
 
   <script>
@@ -231,7 +195,7 @@ a:active {
       const distance = openingDate - now;
 
       if (distance <= 0) {
-        countdownEl.innerHTML = "Siamo online!";
+        countdownEl.innerHTML = "Refresh the page.";
         return;
       }
 
