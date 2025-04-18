@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>BLOOM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+
+
+.custom-button {
+  background-color: #000000;     /* Sfondo nero */
+  color: #ffffff;                /* Testo bianco */
+  padding: 12px 40px;            /* Più largo e più alto */
+  font-size: 1.1rem;             /* Testo un po' più grande */
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+  border-radius: 20px;           /* Angoli più morbidi */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  max-width: 90%;                /* Limita la larghezza su schermi piccoli */
+  width: auto;                   /* Adattabile al contenuto */
+  display: inline-block;
+  margin: 16px 0;
+}
+
+.custom-button:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);   /* Effetto "lift" */
+}
+
+/*LINK BUTTON*/
+.custom-button a {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  font-family: inherit;
+}
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(0, 0, 0);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.loader-content {
+  text-align: center;
+}
+
+.loader-content p {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.loader-logo {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.loading-bar {
+  width: 80%;
+  max-width: 300px;
+  height: 12px;
+  background: #b8b8b8;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.loading-bar .bar {
+  height: 100%;
+  width: 0;
+  background: #fff;
+  animation: load 1.5s forwards;
+  border-radius: 6px;
+}
+
+@keyframes load {
+  to {
+    width: 100%;
+  }
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Open Sans', sans-serif;
+      scroll-snap-type: y mandatory;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .overlay {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.4);
+      scroll-snap-align: start;
+    }
+
+    .logo {
+      max-width: 300px;
+      width: 80%;
+      margin-bottom: 30px;
+    }
+
+    .opening-text {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .desc-text {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .countdown {
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .white-section,
+    .black-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      scroll-snap-align: start;
+    }
+
+    .white-section {
+      background-color: white;
+      color: black;
+    }
+
+    .black-section {
+      background-color: black;
+      color: white;
+      text-align: center;
+    }
+
+    .white-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 1100px;
+      gap: 30px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .white-text h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .white-text p {
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .white-image {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+    }
+
+    .black-link-image {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .black-section a {
+      display: inline-block;
+    }
+
+    @media (min-width: 768px) {
+      .white-container {
+        flex-direction: row;
+        text-align: left;
+      }
+
+      .white-image {
+        width: 45%;
+      }
+
+      .white-text {
+        width: 50%;
+      }
+
+      .black-link-image {
+        max-width: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="white-section">
+    <div class="white-container">
+      <img src="img/logoprofile.png" alt="Immagine descrittiva" class="white-image">
+      <div class="white-text">
+        <h2>Hello! My name is Bloom, and I am the virtual assistant and online face of Bl88m.</h2>
+        <p>We started as a digital startup with the goal of bringing together all our clients’ needs into one personalized solution. <br> We offer professional website creation, whether e-commerce or showcase along with graphic design, advertising and ADV, video production, and more.<br>
+
+          What sets us apart is our human touch: behind Bloom’s mascot there are real people, creative minds working every day to ensure our clients are fully satisfied. <br> While we don’t rely solely on artificial intelligence, we’re not hiding from it either. <br> In fact, we’re developing our own AI solution to make Bloom’s support even more efficient and cutting the edge without losing the personal connection that defines us.</p>
+
+        
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="black-section">
+    <a href="index.html">
+      <img src="img/logohome.png" alt="Home" class="black-link-image">
+    </a>
+  </section>
+
+ 
+
+
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const preloader = document.getElementById('preloader');
+      preloader.style.transition = 'opacity 0.5s ease';
+      preloader.style.opacity = '0';
+      setTimeout(() => {
+        preloader.style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+      }, 500);
+    }, 1500);
+  });
+</script>
+
+</body>
+</html>
