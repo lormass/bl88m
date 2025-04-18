@@ -9,12 +9,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <title>Opening Soon...</title>
-
-  <!-- Import Google Font -->
+  <title>BLOOM</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
+
+
+.custom-button {
+  background-color: #000000;     /* Sfondo nero */
+  color: #ffffff;                /* Testo bianco */
+  padding: 12px 40px;            /* Più largo e più alto */
+  font-size: 1.1rem;             /* Testo un po' più grande */
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+  border-radius: 20px;           /* Angoli più morbidi */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  max-width: 90%;                /* Limita la larghezza su schermi piccoli */
+  width: auto;                   /* Adattabile al contenuto */
+  display: inline-block;
+  margin: 16px 0;
+}
+
+.custom-button:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);   /* Effetto "lift" */
+}
+
+/*LINK BUTTON*/
+.custom-button a {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  font-family: inherit;
+}
 
 #preloader {
   position: fixed;
@@ -235,15 +264,15 @@
   </div>
 </div>
 
-<!-- CONTENUTO DEL SITO -->
+
 <div id="main-content" style="display: none;">
-  <!-- Il tuo sito va qui -->
+
 </div>
 
 
   <video autoplay muted loop playsinline class="video-bg">
     <source src="video/spazio.mp4" type="video/mp4" />
-    Il tuo browser non supporta il video HTML5.
+    You browser don't support it.
   </video>
 
   <div class="overlay">
@@ -258,7 +287,12 @@
       <img src="img/logoprofile.png" alt="Immagine descrittiva" class="white-image">
       <div class="white-text">
         <h2>Hi, my name is "BL88M" but my creators call me "Bloom"!</h2>
-        <p>Stay tuned to find out more...</p>
+        <p>We started as a digital startup with the goal of bringing together all our clients’ needs into one personalized solution...</p>
+        <button class="custom-button">
+          <a href="about-us.html">Read more</a>
+        </button>
+        
+        
       </div>
     </div>
   </section>
@@ -310,3 +344,4 @@
 
 </body>
 </html>
+
