@@ -15,6 +15,64 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(0, 0, 0);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.loader-content {
+  text-align: center;
+}
+
+.loader-content p {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.loader-logo {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.loading-bar {
+  width: 80%;
+  max-width: 300px;
+  height: 12px;
+  background: #b8b8b8;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.loading-bar .bar {
+  height: 100%;
+  width: 0;
+  background: #fff;
+  animation: load 1.5s forwards;
+  border-radius: 6px;
+}
+
+@keyframes load {
+  to {
+    width: 100%;
+  }
+}
+
     * {
       margin: 0;
       padding: 0;
@@ -158,6 +216,23 @@
   </style>
 </head>
 <body>
+  <!-- PRELOADER -->
+<div id="preloader">
+  <div class="loader-content">
+    <img src="img/logo.png" alt="Logo" class="loader-logo" />
+    <p>Loading...</p>
+    <div class="loading-bar">
+      <div class="bar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENUTO DEL SITO -->
+<div id="main-content" style="display: none;">
+  <!-- Il tuo sito va qui -->
+</div>
+
+
   <video autoplay muted loop playsinline class="video-bg">
     <source src="video/spazio.mp4" type="video/mp4" />
     Il tuo browser non supporta il video HTML5.
@@ -209,5 +284,21 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>
+
+
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const preloader = document.getElementById('preloader');
+      preloader.style.transition = 'opacity 0.5s ease';
+      preloader.style.opacity = '0';
+      setTimeout(() => {
+        preloader.style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+      }, 500);
+    }, 1500);
+  });
+</script>
+
 </body>
 </html>
