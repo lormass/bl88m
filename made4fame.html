@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Made4Fame</title>
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+  <style>
+
+
+/* Sezione fullscreen */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* 100% dell'altezza dello schermo */
+    background: url('imgmade4fame/bannermade4fame_1.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* L'immagine resta ferma quando scrolli */
+}
+
+/* Contenuto della sezione */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    color: white;
+    max-width: 600px; /* Limita la larghezza del contenuto per evitare troppo spazio su schermi grandi */
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero .btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.hero .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsività */
+@media screen and (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero .btn {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero .btn {
+        font-size: 1rem;
+        padding: 8px 14px;
+    }
+}
+
+
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #000;
+      color: #fff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    header, nav, section {
+      animation: fadeInUp 1s ease both;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #11111100;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo img {
+      height: 65px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: #fff;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #ff007f;
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      margin: 4px 0;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .cta {
+      background-color: #ff007f;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .cta:hover {
+      background-color: #e6006e;
+      transform: scale(1.05);
+    }
+    .section {
+      padding: 40px 20px;
+    }
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .chi-siamo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .chi-siamo-container img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 10px;
+    }
+    .chi-siamo-text {
+      max-width: 600px;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .service {
+      background-color: #111;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 10px #ff007f66;
+    }
+    .service img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .service h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #ff007f;
+    }
+    @media screen and (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .section h2 {
+        font-size: 1.5rem;
+      }
+      .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #111;
+        padding: 20px;
+        border-radius: 10px;
+        display: none;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+      .chi-siamo-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+  </style>
+</head>
+  <body>
+    <!-- PRELOADER -->
+<div id="preloader">
+  <div class="loader-content">
+    <img src="img/logo.png" alt="Logo" class="loader-logo" />
+    <p>Loading...</p>
+    <div class="loading-bar">
+      <div class="bar"></div>
+    </div>
+  </div>
+</div>
+
+  <section class="hero">
+    <div class="hero-content">
+        <h1>ZERO SCUSE,<br> SOLO CRESCITA</h1>
+        <a href="#" class="cta">Candidati ora</a>
+    </div>
+</section>
+
+  <section class="section" id="servizi">
+    <div class="container">
+      <h2>I Servizi di Made4Fame</h2>
+      <div class="services">
+        <div class="service">
+          <img src="imgmade4fame/vocal.jpg" alt="Vocal Coach">
+          <h3>Vocal Coach</h3>
+          <p>Lezioni, interpretazione, tecnica, emozione e presenza.</p>
+        </div>
+        <div class="service">
+          <img src="imgmade4fame/prod.jpg" alt="Produzioni musicali">
+          <h3>Produzioni musicali inedite</h3>
+          <p>Brani originali, sound design, registrazione e mix.</p>
+        </div>
+        <div class="service">
+          <img src="imgmade4fame/immaginario.png" alt="Immaginario visivo">
+          <h3>Immaginario artistico e visivo</h3>
+          <p>Look, colori, estetica e storytelling personale.</p>
+        </div>
+        <div class="service">
+          <img src="imgmade4fame/shooting.png" alt="Shooting e social">
+          <h3>Shooting e contenuti per social</h3>
+          <p>Foto professionali, reel, creatività e piani editoriali.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="chi-siamo">
+    <div class="container">
+      <h2>Chi siamo</h2>
+      <div class="chi-siamo-container">
+        <img src="imgmade4fame/banner00.png" alt="Chi siamo">
+        <div class="chi-siamo-text">
+          <p>Per chi ha talento ma non sa dove sbattere la testa. Per chi ha fame, voce, stile… ma gli manca direzione. Qui non facciamo miracoli. Qui si lavora, si cresce, si spacca.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+  </script>
+ <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Pagina caricata!');
+});
+</script>
+<script>
+    function updatemenu() {
+    if (document.getElementById('responsive-menu').checked == true) {
+      document.getElementById('menu').style.borderBottomRightRadius = '0';
+      document.getElementById('menu').style.borderBottomLeftRadius = '0';
+    } else {
+      document.getElementById('menu').style.borderRadius = '4px';
+    }
+}
+
+</script>
+</body>
+</html>
