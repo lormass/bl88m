@@ -8,7 +8,71 @@
 
   <style>
 
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(0, 0, 0);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
 
+.loader-content {
+  text-align: center;
+}
+
+.loader-content p {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.loader-logo {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.loading-bar {
+  width: 80%;
+  max-width: 300px;
+  height: 12px;
+  background: #b8b8b8;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.loading-bar .bar {
+  height: 100%;
+  width: 0;
+  background: #fff;
+  animation: load 1.5s forwards;
+  border-radius: 6px;
+}
+
+@keyframes load {
+  to {
+    width: 100%;
+  }
+}
+    
 /* Sezione fullscreen */
 .hero {
     position: relative;
