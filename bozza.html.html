@@ -190,8 +190,9 @@
     .header-float-inner {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       padding: 6px 14px;
+      position: relative;
     }
 
     .header-float-inner .brand {
@@ -269,6 +270,30 @@
       transition: .3s;
     }
 
+    /* Center grid items and buttons */
+    .posters { justify-items: center; }
+    .posters .card { width:100%; max-width:620px; margin:0 auto; }
+
+    /* Button wrapper to consistently center groups of buttons */
+    .btn-wrap { display:flex; justify-content:center; gap:12px; flex-wrap:wrap }
+
+    /* Ensure CTA in floating header is centered while brand/nav remain at edges */
+    .header-float-inner .brand { position:absolute; left:18px; }
+    .header-float-inner .nav-desktop { position:absolute; right:18px; }
+    .header-floating .cta-box { display:flex; gap:12px; align-items:center; }
+
+    /* Force buttons to center in their containers */
+    .container .btn { box-sizing:border-box }
+
+    /* Small responsive tweaks */
+    @media(max-width: 860px) {
+      /* revert header layout for small screens */
+      .header-float-inner { justify-content: space-between }
+      .header-float-inner .brand, .header-float-inner .nav-desktop { position: static }
+      .header-floating { width: calc(100% - 22px); padding:10px }
+      .posters .card { max-width:100%; }
+    }
+
    /* QUI DA PROBLEMI #PROBLEM */ 
     /* QUI DA PROBLEMI #PROBLEM */ 
      /* QUI DA PROBLEMI #PROBLEM */ 
@@ -342,7 +367,7 @@
         <a href="#">Chi Siamo</a>
       </nav>
 
-      <div class="cta-box" style="display:flex;gap:12px;align-items:center">
+      <div class="cta-box">
         <button class="btn-ghost" onclick="openMail()">Contattaci</button>
         <button class="btn-black" onclick="openPreventivo()">Preventivo</button>
       </div>
@@ -441,7 +466,7 @@
       <div class="hero-body">
         <h1>Hi, my name is "BL88M" — creators call me "Bloom".</h1>
         <p>We started as a digital startup with the goal of bringing together all our clients’ needs into one personalized solution. We design, build and grow ambitious brands and e-commerce businesses.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+        <div class="btn-wrap" style="margin-top:12px">
           <a class="btn primary" href="about-us.html">Read more</a>
           <a class="btn ghost" href="mailto:bl88m.creators@gmail.com?subject=Contatto%20BLOOM">Contattaci</a>
         </div>
@@ -485,7 +510,7 @@
           </div>
         </div>
 
-        <div style="display:flex;gap:12px">
+        <div class="btn-wrap">
           <a class="btn primary" href="mailto:bl88m.creators@gmail.com?subject=Preventivo%20E-commerce">Contact us</a>
         </div>
       </div>
@@ -528,7 +553,7 @@
           </div>
         </div>
 
-        <div style="display:flex;gap:12px">
+        <div class="btn-wrap">
           <a class="btn primary" href="mailto:bl88m.creators@gmail.com?subject=Preventivo%20Marketing">Richiedi Preventivo</a>
         </div>
       </div>
